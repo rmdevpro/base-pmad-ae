@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "base-pmad-ae"
+version = "0.1.0"
+description = "Base Action Engine for pMADs — health, metrics, and autoprompt infrastructure flows"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=0.2.60",
+    "langchain-core>=0.3.28",
+    "prometheus-client>=0.21.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
