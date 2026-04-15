@@ -1,24 +1,26 @@
 """AE Tool Registry — maps tool names to callables.
 
-All tools are AE-owned. TEs call them via MCP. Each TE's config
-specifies which tools it can use.
+All tools are AE-owned. TEs access them via TEContext.get_tools_for_model().
+Each TE's config specifies which tools it can use.
+
+This package is standalone — no imports from app.*.
 """
 
-from app.tools.admin import (
+from .admin import (
     config_read,
     config_write,
     change_inference,
     db_query,
     verbose_toggle,
 )
-from app.tools.alerting import (
+from .alerting import (
     add_alert_instruction,
     delete_alert_instruction,
     list_alert_instructions,
     update_alert_instruction,
 )
-from app.tools.diagnostic import log_query
-from app.tools.filesystem import (
+from .diagnostic import log_query
+from .filesystem import (
     file_list,
     file_read,
     file_search,
@@ -26,10 +28,10 @@ from app.tools.filesystem import (
     read_system_prompt,
     update_system_prompt,
 )
-from app.tools.notify import send_notification
-from app.tools.operational import search_domain_info, store_domain_info
-from app.tools.system import run_command
-from app.tools.web import web_read, web_search
+from .notify import send_notification
+from .operational import search_domain_info, store_domain_info
+from .system import run_command
+from .web import web_read, web_search
 
 # Master registry: tool_name -> tool callable
 TOOL_REGISTRY: dict = {
