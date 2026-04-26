@@ -23,6 +23,7 @@ def register() -> dict:
     from base_pmad_ae.autoprompt_dispatcher import build_autoprompt_dispatcher_flow
     from base_pmad_ae.embedding_worker import build_embedding_worker_flow
     from base_pmad_ae.tools import TOOL_REGISTRY, ADMIN_TOOLS, get_tools_for_model
+    from base_pmad_ae.dispatcher import GraphDispatcher
 
     return {
         "build_types": {},
@@ -35,4 +36,5 @@ def register() -> dict:
         "tools": TOOL_REGISTRY,
         "admin_tools": ADMIN_TOOLS,
         "get_tools_for_model": get_tools_for_model,
+        "dispatcher_class": GraphDispatcher,
     }

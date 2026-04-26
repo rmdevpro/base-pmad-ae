@@ -76,3 +76,9 @@ class TEContext(Protocol):
     def get_metrics_registry(self) -> Any:
         """Return the Prometheus CollectorRegistry for metrics registration."""
         ...
+
+    # ── Peer Proxy ───────────────────────────────────────────────
+
+    def get_peer_proxy(self) -> Any:
+        """Return a client for reaching other MADs in the ecosystem (ERQ-002 §13.2)."""
+        ...

@@ -3,7 +3,8 @@
 All tools are AE-owned. TEs access them via TEContext.get_tools_for_model().
 Each TE's config specifies which tools it can use.
 
-This package is standalone — no imports from app.*.
+Individual tool modules import from app.* (database, config) — the AE is
+kernel-coupled by design. TEs are not; they access everything via TEContext.
 """
 
 from .admin import (
